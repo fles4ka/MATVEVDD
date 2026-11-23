@@ -39,7 +39,10 @@ class Item(BaseModel):
 @router.get(
     "/{item_id}",
     summary="Получить товар по ID",
-    description="Поиск товара в тестовой базе данных"
+    description="Поиск товара в тестовой базе данных",
+    responses={
+    404: {"description": "Item not found"}
+    }
 )
 def read_item(
     item_id: int = Path(
